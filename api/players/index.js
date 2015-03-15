@@ -37,7 +37,7 @@ exports.index = function *(){
 };
 
 exports.show = function *(){
-  var player = yield Player.findById(this.params.player).populate('decks').exec();
+  var player = yield Player.findById(this.params.player).populate({path: 'decks', options: { sort: { 'deckClass': 1 } } }).exec();
   this.body = player;
 };
 

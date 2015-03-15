@@ -26,7 +26,7 @@ var Decks = mongoose.model('Decks', deckSchema);
 
 exports.index = function *(){
 
-	var decks = yield Decks.find().populate('cards').exec();
+	var decks = yield Decks.find().sort('deckClass').populate('cards').exec();
 	this.body = decks;
 
 };
