@@ -1,5 +1,6 @@
 <h1 class="page-header">Editing: <img src="img/classes/{{deck.deckClass}}.jpg"> {{deck.deckClass}}  for {{player.nick}}</h1>
-
+Currently <b>{{deck.cards.length}}</b> of max 30 cards. <b>{{30 - deck.cards.length}}</b> to go!
+<hr>
 <ul class="list-group">
 <li class="list-group-item" ng-repeat="card in deck.cards">
 	<img class="card-image .pull-left"ng-src="/img/cards/{{card.id}}.png">
