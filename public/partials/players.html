@@ -1,0 +1,6 @@
+<div class="col-sm-3 col-md-2 sidebar">
+	<ul class="nav nav-sidebar">
+		<li ng-class="{ active: isActive('/decks/{{player._id}}')}"  ng-repeat="player in players ">
+			<a href="#/decks/{{player._id}}">{{player.nick}}</a>
+		</li>
+</div>

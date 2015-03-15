@@ -1,0 +1,27 @@
+<h1 class="page-header">Editing: <img src="img/classes/{{deck.deckClass}}.jpg"> {{deck.deckClass}}  for {{player.nick}}</h1>
+
+<ul class="list-group">
+<li class="list-group-item" ng-repeat="card in deck.cards">
+	<img class="card-image .pull-left"ng-src="/img/cards/{{card.id}}.png">
+	<div class="card-text">{{card.name}}</div>
+	<button type="button" class="btn btn-danger btn-lg pull-right" ng-click="deleteCard(card._id)">
+		<span class="glyphicon glyphicon glyphicon-remove" aria-hidden="true"></span>
+	</button>
+</li>
+</ul>
+<div class="row"></div>
+<div class="form-group">
+
+ </div>
+
+<angucomplete-alt id="members"
+              placeholder="Add Card"
+              pause="100"
+              selected-object="addCard"
+              remote-url="cards/search/"
+              title-field="name"
+              description-field="_id"
+              image-uri="/img/cards/"
+              image-field="id"
+              minlength="2"
+              input-class="form-control form-control-small"/>

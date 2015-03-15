@@ -1,0 +1,11 @@
+{
+  "name": "decks",
+  "description": "user account resource",
+  "routes": {
+    "GET /decks": "index",
+    "GET /decks/:deck": "show",
+    "POST /decks": "create",
+    "PUT /decks/:deck": "update",
+    "DELETE /decks/:deck/:card": "deleteCard"
+  }
+}

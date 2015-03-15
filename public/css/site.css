@@ -1,0 +1,12 @@
+.card-image
+{
+
+	height: 50px;
+}
+
+.card-text
+{
+	display:inline;
+	margin-left: 20px;
+	font-size: 15px;
+}

@@ -1,0 +1,11 @@
+{
+  "name": "players",
+  "description": "user account resource",
+  "routes": {
+    "GET /players": "index",
+    "GET /players/:player": "show",
+    "POST /players": "create",
+    "PUT /players/:player": "update",
+    "POST /players/import": "importer"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "cards",
+  "description": "user account resource",
+  "routes": {
+    "GET /cards": "index",
+    "GET /cards/:card": "show",
+    "GET /cards/search/:q": "search",
+    "POST /cards": "create",
+    "PUT /cards/:card": "update",
+    "POST /cards/import": "importer"
+  }
+}
