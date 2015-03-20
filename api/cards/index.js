@@ -37,7 +37,7 @@ var Cards = mongoose.model('Cards', cardSchema);
 
 exports.index = function *(){
 
-    var cards = yield Cards.find().exec();
+    var cards = yield Cards.find().sort('hsid').exec();
     this.body = cards;
 
 };

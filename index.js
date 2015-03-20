@@ -8,6 +8,7 @@ var compress = require('koa-compress');
 var logger = require('koa-logger');
 var router = require('koa-router');
 var serve = require('koa-static');
+var auth = require('koa-basic-auth');
 var load = require('./lib/load');
 var redis = require('redis');
 var koa = require('koa');
@@ -40,6 +41,20 @@ function api(opts) {
 
   if ('test' != env) app.use(logger());
 
+  app.use(function *(next){
+    try {
+      yield next;
+    } catch (err) {
+      if (401 == err.status) {
+        this.status = 401;
+        this.set('WWW-Authenticate', 'Basic');
+        this.body = 'cant haz that';
+      } else {
+        throw err;
+      }
+    }
+  });
+
   // x-response-time
 
   app.use(responseTime());
@@ -48,7 +63,8 @@ function api(opts) {
 
   app.use(compress());
 
-  // rate limiting
+  // auth
+  app.use(auth({ name: 'test', pass: 'test' }));
 
   // routing
   app.use(serve('./public'));
