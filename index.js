@@ -48,7 +48,7 @@ function api(opts) {
       if (401 == err.status) {
         this.status = 401;
         this.set('WWW-Authenticate', 'Basic');
-        this.body = 'cant haz that';
+        this.body = 'SORRY U SUCK';
       } else {
         throw err;
       }
