@@ -1,5 +1,20 @@
 <h1 class="page-header">Editing: <img src="img/classes/{{deck.deckClass}}.jpg"> {{deck.deckClass}}  for {{player.nick}}</h1>
-Currently <b>{{deck.cards.length}}</b> of max 30 cards. <b>{{30 - deck.cards.length}}</b> to go!
+Currently <b>{{deck.cards.length}}</b> of max 30 cards. <b>{{30 - deck.cards.length}}</b> to go! <br />
+<div class="form-group">
+
+
+<angucomplete-alt id="members"
+              placeholder="Add Card"
+              pause="100"
+              selected-object="addCard"
+              remote-url="cards/search/"
+              title-field="name"
+              description-field="_id"
+              image-uri="/img/cards/"
+              image-field="image"
+              minlength="2"
+              input-class="form-control form-control-small"/>
+</div>
 <hr>
 <ul class="list-group">
 <li class="list-group-item" ng-repeat="card in deck.cards">
@@ -15,14 +30,3 @@ Currently <b>{{deck.cards.length}}</b> of max 30 cards. <b>{{30 - deck.cards.len
 
  </div>
 
-<angucomplete-alt id="members"
-              placeholder="Add Card"
-              pause="100"
-              selected-object="addCard"
-              remote-url="cards/search/"
-              title-field="name"
-              description-field="_id"
-              image-uri="/img/cards/"
-              image-field="image"
-              minlength="2"
-              input-class="form-control form-control-small"/>
