@@ -8,6 +8,7 @@ var compress = require('koa-compress');
 var logger = require('koa-logger');
 var router = require('koa-router');
 var serve = require('koa-static');
+var helmet = require('koa-helmet');
 var auth = require('koa-basic-auth');
 var load = require('./lib/load');
 var redis = require('redis');
@@ -58,6 +59,9 @@ function api(opts) {
   // x-response-time
 
   app.use(responseTime());
+
+  // youtube embed
+  app.use(helmet.xframe('allow-from', 'https://www.youtube.com'));
 
   // compression
 

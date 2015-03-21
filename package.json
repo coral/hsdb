@@ -15,6 +15,7 @@
     "koa": "~0.6.1",
     "koa-basic-auth": "^1.1.2",
     "koa-compress": "1.0.7",
+    "koa-helmet": "0.0.3",
     "koa-logger": "~1.2.1",
     "koa-ratelimit": "~1.0.3",
     "koa-resource-router": ">0.3.3",
