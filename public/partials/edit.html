@@ -3,7 +3,7 @@ Currently <b>{{deck.cards.length}}</b> of max 30 cards. <b>{{30 - deck.cards.len
 <hr>
 <ul class="list-group">
 <li class="list-group-item" ng-repeat="card in deck.cards">
-	<img class="card-image .pull-left"ng-src="/img/cards/{{card.id}}.png">
+	<img class="card-image .pull-left"ng-src="img/cards/{{card.image}}">
 	<div class="card-text">{{card.name}}</div>
 	<button type="button" class="btn btn-danger btn-lg pull-right" ng-click="deleteCard(card._id)">
 		<span class="glyphicon glyphicon glyphicon-remove" aria-hidden="true"></span>
@@ -23,6 +23,6 @@ Currently <b>{{deck.cards.length}}</b> of max 30 cards. <b>{{30 - deck.cards.len
               title-field="name"
               description-field="_id"
               image-uri="/img/cards/"
-              image-field="id"
+              image-field="image"
               minlength="2"
               input-class="form-control form-control-small"/>

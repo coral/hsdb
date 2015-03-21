@@ -73,7 +73,7 @@ exports.importer = function *(name){
 
     Cards.collection.remove(function(){});
 
-    fs.readFile(__dirname + '/fixedlist.json', function (err, data) {
+    fs.readFile(__dirname + '/cards.json', function (err, data) {
         if (err) throw err;
         var cardset = JSON.parse(data);
         var seen = [];
@@ -82,7 +82,6 @@ exports.importer = function *(name){
                 seen.push(n.id);
                 var save = Cards.create({
                     id: n.id,
-                    hsid: n.hsid,
                     name: n.name,
                     image: n.image,
                     type: n.type || "",
