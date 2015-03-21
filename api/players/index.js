@@ -3,6 +3,7 @@
 var mongoose = require('mongoose');
 var thunkify = require('thunkify');
 var parse = require('co-body');
+var deepPopulate = require('mongoose-deep-populate');
 var fs = require('fs');
 var _ = require('lodash');
 var ObjectId = mongoose.SchemaTypes.ObjectId;
@@ -24,14 +25,14 @@ var playerSchema = mongoose.Schema({
     nick: String,
     decks: [{type: ObjectId, ref: 'Decks'}]
 })
-
+playerSchema.plugin(deepPopulate);
 var Player = mongoose.model('Player', playerSchema);
 
 
 
 exports.index = function *(){
 
-	var players = yield Player.find().sort('nick').populate('decks').exec();
+	var players = yield Player.find().sort('nick').populate('decks').deepPopulate('decks.cards').exec();
 	this.body = players;
 
 };
