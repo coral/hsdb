@@ -25,6 +25,7 @@
     "koa-static-folder": "^0.1.5",
     "lodash": "^3.5.0",
     "mongoose": "^3.8.25",
+    "mongoose-deep-populate": "^1.0.1",
     "redis": "~0.10.3",
     "thunkify": "^2.1.2"
   },

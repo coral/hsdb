@@ -68,7 +68,7 @@ function api(opts) {
   app.use(compress());
 
   // auth
-  app.use(auth({ name: 'test', pass: 'test' }));
+  app.use(auth({ name: 'mtgxhousecup', pass: '8asdfjhji2jmnaksdlnvhaj12rg5ojka' }));
 
   // routing
   app.use(serve('./public'));
