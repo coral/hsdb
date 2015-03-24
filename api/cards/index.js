@@ -101,6 +101,38 @@ exports.importer = function *(name){
     this.status = 201;
 };
 
+exports.adder = function *(name){
+
+
+    fs.readFile(__dirname + '/extraimport.json', function (err, data) {
+        if (err) throw err;
+        var cardset = JSON.parse(data);
+        var seen = [];
+        _.forEach(cardset, function(n, key) {
+            if (_.indexOf(seen, n.id) == -1) {
+                seen.push(n.id);
+                var save = Cards.create({
+                    id: n.id,
+                    name: n.name,
+                    image: n.image,
+                    type: n.type || "",
+                    rarity: n.rarity || "",
+                    cost: n.cost || "",
+                    attack: n.attack || "",
+                    flavor: n.flavor || "",
+                    faction: n.faction || "",
+                    playerClass: n.playerClass || "",
+                    elite: n.elite || ""
+                });
+            }
+        });
+    });
+
+    this.body = "OK";
+    this.status = 201;
+};
+
+
 
 exports.update = function *(Cards){
     var body = yield parse(this);
