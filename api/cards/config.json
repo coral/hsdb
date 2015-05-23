@@ -7,7 +7,7 @@
     "GET /cards/search/:q": "search",
     "POST /cards": "create",
     "PUT /cards/:card": "update",
-    "POST /cards/import": "importer",
+    "get /cardsimport": "importer",
     "POST /cards/adder": "adder"
   }
 }

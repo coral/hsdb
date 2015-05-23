@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env ../iojs-v2.0.2-linux-x64/bin/node
 
 /**
  * Module dependencies.

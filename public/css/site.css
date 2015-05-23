@@ -1,8 +1,18 @@
 .card-image
 {
 
-	height: 50px;
+	height: 100px;
+	transition: transform 0.3s;
+	transform-origin: 50% 100%;
+
+
 }
+
+.card-image:hover {
+	transform: scale(2);
+}
+
+
 
 .card-text
 {

@@ -17,6 +17,7 @@
     "angular-route": "~1.3.14",
     "lodash": "~3.5.0",
     "angular-macgyver": "~0.6.1",
-    "angucomplete": "*"
+    "angucomplete": "*",
+    "angucomplete-alt": "*"
   }
 }

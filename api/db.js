@@ -6,7 +6,7 @@ mongoose.connect('mongodb://localhost/hsdb');
 
 var db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'connection error:'));
+db.on('error', console.error.bind(console, 'connection error db.js:'));
 db.once('open', function (callback) {
 
 });

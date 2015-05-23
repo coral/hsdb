@@ -60,9 +60,6 @@ function api(opts) {
 
   app.use(responseTime());
 
-  // youtube embed
-  app.use(helmet.xframe('allow-from', 'https://www.youtube.com'));
-
   // compression
 
   app.use(compress());

@@ -10,8 +10,9 @@ mongoose.connect('mongodb://localhost/hsdb');
 
 var db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'connection error:'));
+db.on('error', console.error.bind(console, 'connection error - cards:'));
 db.once('open', function (callback) {
+  console.log("Cards connected");
 
 });
 
@@ -26,6 +27,7 @@ var cardSchema = mongoose.Schema({
     rarity: String,
     cost: String,
     attack: String,
+    health: String,
     flavor: String,
     faction: String,
     playerClass: String,
@@ -51,6 +53,11 @@ exports.show = function *(){
 exports.search = function *(){
     var regex = new RegExp(this.params.q, 'i');
     var card = yield Cards.find({name: regex}).exec();
+
+    for (var i in card) {
+      card[i].image = 'img/cards/' + card[i].image;
+    }
+
     this.body = card;
 };
 
@@ -88,6 +95,7 @@ exports.importer = function *(name){
                     rarity: n.rarity || "",
                     cost: n.cost || "",
                     attack: n.attack || "",
+                    health: n.health || "",
                     flavor: n.flavor || "",
                     faction: n.faction || "",
                     playerClass: n.playerClass || "",

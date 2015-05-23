@@ -6,6 +6,6 @@
     "GET /players/:player": "show",
     "POST /players": "create",
     "PUT /players/:player": "update",
-    "POST /players/import": "importer"
+    "GET /playersimport": "importer"
   }
 }
