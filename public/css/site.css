@@ -3,13 +3,13 @@
 
 	height: 100px;
 	transition: transform 0.3s;
-	transform-origin: 50% 100%;
+	transform-origin: 50% 80%;
 
 
 }
 
-.card-image:hover {
-	transform: scale(2);
+.list-group-item:hover .card-image {
+	transform: scale(1.7);
 }
 
 

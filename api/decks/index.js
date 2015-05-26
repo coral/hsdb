@@ -5,7 +5,7 @@ var thunkify = require('thunkify');
 var parse = require('co-body');
 var ObjectId = mongoose.SchemaTypes.ObjectId;
 
-mongoose.connect('mongodb://localhost/hsdb');
+mongoose.connect('mongodb://10.0.1.2/hsdb');
 
 var db = mongoose.connection;
 
@@ -35,6 +35,25 @@ exports.index = function *(){
 exports.show = function *(){
   var deck = yield Decks.findById(this.params.deck).populate('cards').exec();
   this.body = deck;
+};
+
+
+exports.showAsText = function *(){
+  var deck = yield Decks.findById(this.params.deck).populate('cards').exec();
+
+
+ var b = ""
+
+
+
+    deck.cards.forEach(function (o) {
+
+        b +=o.name + "\n"
+
+    } );
+
+    this.body = b;
+
 };
 
 exports.create = function *(name){

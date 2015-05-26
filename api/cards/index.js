@@ -6,7 +6,7 @@ var parse = require('co-body');
 var _ = require('lodash');
 var fs = require('fs');
 
-mongoose.connect('mongodb://localhost/hsdb');
+mongoose.connect('mongodb://10.0.1.2/hsdb');
 
 var db = mongoose.connection;
 

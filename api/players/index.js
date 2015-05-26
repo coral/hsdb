@@ -8,7 +8,7 @@ var fs = require('fs');
 var _ = require('lodash');
 var ObjectId = mongoose.SchemaTypes.ObjectId;
 
-mongoose.connect('mongodb://localhost/hsdb');
+mongoose.connect('mongodb://10.0.1.2/hsdb');
 
 
 var db = mongoose.connection;

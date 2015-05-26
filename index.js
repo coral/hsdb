@@ -65,7 +65,7 @@ function api(opts) {
   app.use(compress());
 
   // auth
-  app.use(auth({ name: 'test', pass: 'test' }));
+  app.use(auth({ name: 'viagame', pass: 'fläskpannkaka' }));
 
   // routing
   app.use(serve('./public'));

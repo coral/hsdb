@@ -10,7 +10,10 @@
 
                 <div class="btn-group" role="group" aria-label="...">
                     <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete">Remove</button> -->
+                    <p>Currently <b>{{deck.cards.length}}</b> of max 30 cards. <b>{{30 - deck.cards.length}}</b> to go!</p>
                     <a href="#/edit/{{player._id}}/{{deck._id}}" class="btn btn-success" role="button">Edit &raquo;</a>
+                    <a href="/decks/text/{{deck._id}}" class="btn btn-success" role="button" target="_blank">Export text file</a>
+
                 </div>
             </div>
         </div>
@@ -30,4 +33,3 @@
           </ul>
         </div>
     </div>
-
