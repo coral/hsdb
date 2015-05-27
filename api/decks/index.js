@@ -17,8 +17,8 @@ db.once('open', function (callback) {
 
 
 var deckSchema = mongoose.Schema({
-    deckClass: String,
-    cards: [{type: ObjectId, ref: 'Cards'}]
+  deckClass: String,
+  cards: [{type: ObjectId, ref: 'Cards'}]
 })
 
 var Decks = mongoose.model('Decks', deckSchema);
@@ -26,8 +26,8 @@ var Decks = mongoose.model('Decks', deckSchema);
 
 exports.index = function *(){
 
-	var decks = yield Decks.find().sort('deckClass').populate('cards').exec();
-	this.body = decks;
+  var decks = yield Decks.find().sort('deckClass').populate('cards').exec();
+  this.body = decks;
 
 };
 
@@ -40,46 +40,39 @@ exports.show = function *(){
 
 exports.showAsText = function *(){
   var deck = yield Decks.findById(this.params.deck).populate('cards').exec();
+  var b = ""
 
+  deck.cards.forEach(function (o) {
+    b +=o.name + "\n";
+  } );
 
- var b = ""
-
-
-
-    deck.cards.forEach(function (o) {
-
-        b +=o.name + "\n"
-
-    } );
-
-    this.body = b;
-
+  this.body = b;
 };
 
 exports.create = function *(name){
 
-	var body = yield parse(this);
-	if (!body.deckClass) this.throw(400, '.name required');
+  var body = yield parse(this);
+  if (!body.deckClass) this.throw(400, '.name required');
 
-	var save = yield Decks.create({
-	 deckClass: body.deckClass,
-	});
+  var save = yield Decks.create({
+    deckClass: body.deckClass,
+  });
 
-	this.body = save;
-	this.status = 201;
+  this.body = save;
+  this.status = 201;
 
 
 };
 
 exports.update = function *(decks){
-	var body = yield parse(this);
+  var body = yield parse(this);
 
-	var update = yield Decks.findByIdAndUpdate(this.params.deck, { $push: {
-		cards: body.cards
+  var update = yield Decks.findByIdAndUpdate(this.params.deck, { $push: {
+    cards: body.cards
 
-	}}).exec();
-	this.status = 202;
-	this.body = update;
+  }}).exec();
+  this.status = 202;
+  this.body = update;
 };
 
 exports.deleteDeck = function *(decks){
@@ -89,11 +82,11 @@ exports.deleteDeck = function *(decks){
 exports.deleteCard = function *(decks){
 
 
-	var update = yield Decks.findByIdAndUpdate(this.params.deck, { $pull: {
-		cards: this.params.card
+  var update = yield Decks.findByIdAndUpdate(this.params.deck, { $pull: {
+    cards: this.params.card
 
-	}}).exec();
+  }}).exec();
 
-	this.status = 200;
-	this.body = "OK";
+  this.status = 200;
+  this.body = "OK";
 };
