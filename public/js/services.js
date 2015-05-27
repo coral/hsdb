@@ -30,5 +30,5 @@ hsdbServices.factory('Decks', ['$resource',
 }]);
 
 hsdbServices.factory('AvailableClasses', function availableClasses() {
-  return ['Druid', 'Hunter', 'Mage', 'Paladin', 'Priest', 'Rouge', 'Shaman', 'Warlock', 'Warrior'];
+  return ['Druid', 'Hunter', 'Mage', 'Paladin', 'Priest', 'Rogue', 'Shaman', 'Warlock', 'Warrior'];
 });
